@@ -23,9 +23,6 @@ function App() {
   return (
     <>
       <div id="pitchProgress"></div>
-      <div id="sceneLabel" aria-live="polite">
-        01 / 09 · ORIGIN STORY
-      </div>
       <div id="founderGuides" aria-hidden="true">
         <div className="guide active">
           <div className="voice" id="zeyanVoice">
@@ -172,22 +169,27 @@ function App() {
           <div className="guide-tag">BHANU</div>
         </div>
       </div>
-      <div
-        id="characterEditor"
-        role="group"
-        aria-label="Character layout controls"
-      >
-        <button
-          id="resetCharacters"
-          className="reset"
-          type="button"
-          title="Restore automatic cinematic placement"
+      <div className="pitch-status">
+        <div
+          id="characterEditor"
+          role="group"
+          aria-label="Character layout controls"
         >
-          ↺ Reset
-        </button>
-        <span className="hint" id="charHint">
-          Drag a founder
-        </span>
+          <button
+            id="resetCharacters"
+            className="reset"
+            type="button"
+            title="Restore automatic cinematic placement"
+          >
+            ↺ Reset
+          </button>
+          <span className="hint" id="charHint">
+            Drag a founder
+          </span>
+        </div>
+        <div id="sceneLabel" aria-live="polite">
+          01 / 13 · ORIGIN STORY
+        </div>
       </div>
       <div id="autoplayHint">← → Chapters · Space to pause autoplay</div>
       <div id="stageControls">

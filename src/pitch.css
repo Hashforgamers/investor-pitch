@@ -878,11 +878,16 @@ body::after {
   z-index: 200;
   box-shadow: 0 0 19px #8bee61;
 }
-#sceneLabel {
+.pitch-status {
   position: fixed;
-  left: 24px;
-  bottom: 20px;
-  z-index: 91;
+  left: 12px;
+  bottom: 13px;
+  z-index: 94;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#sceneLabel {
   font-size: 10px;
   letter-spacing: 0.17em;
   color: #c7d0e0;
@@ -1913,7 +1918,7 @@ body::after {
 #founderGuides.custom-layout .guide { position:absolute; animation:none }
 #founderGuides .dragging { cursor:grabbing; z-index:1 }
 .guide:hover .guide-tag,.guide.dragging .guide-tag { border-color:var(--lime); color:var(--lime) }
-#characterEditor {position:fixed;z-index:94;bottom:13px;left:12px;display:flex;align-items:center;gap:8px;background:#0e151def;border:1px solid #ffffff28;border-radius:30px;padding:4px 10px 4px 4px;color:#c4cdcf;font-size:11px}
+#characterEditor {display:flex;align-items:center;gap:8px;background:#0e151def;border:1px solid #ffffff28;border-radius:30px;padding:4px 10px 4px 4px;color:#c4cdcf;font-size:11px}
 #resetCharacters {cursor:pointer;color:var(--lime);border:0;border-radius:22px;background:#26352c;padding:7px 10px}
 @media(max-width:900px){#founderGuides{transform:none !important} .guide-portrait{width:56px;height:72px}.guide .voice{bottom:95px}}
 @media(max-width:600px){.guide-portrait{width:44px;height:56px}.guide .voice{bottom:79px}#characterEditor .hint{display:none}}
