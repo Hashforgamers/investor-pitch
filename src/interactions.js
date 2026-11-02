@@ -170,6 +170,10 @@ export function initializePitch() {
       sections.forEach((s, i) => {
         let r = s.getBoundingClientRect(),
           d = Math.abs(r.top - h * 0.18);
+        if (!reduced && r.bottom >= 0 && r.top <= h) {
+          const offset = Math.max(-1, Math.min(1, (r.top + r.height / 2 - h / 2) / h));
+          s.style.setProperty("--depth", offset.toFixed(3));
+        }
         if (d < dist) {
           dist = d;
           best = i;
@@ -259,12 +263,10 @@ export function initializePitch() {
   (() => {
     const stage = document.getElementById("founderGuides"),
       guides = [...stage.querySelectorAll(".guide")];
-    const toggle = document.getElementById("moveCharacters"),
-      reset = document.getElementById("resetCharacters"),
+    const reset = document.getElementById("resetCharacters"),
       hint = document.getElementById("charHint");
     const key = "hash-founder-character-positions-v1";
-    let editing = false,
-      drag = null,
+    let drag = null,
       positions = null;
     const clamp = (v, a, b) => Math.min(Math.max(v, a), b);
     function apply() {
@@ -274,20 +276,11 @@ export function initializePitch() {
       guides.forEach((g, i) => {
         const x = positions[i]?.x ?? (i === 0 ? 0.07 : 0.21),
           y = positions[i]?.y ?? 0.67;
-        g.style.left = clamp(x, 0, 1) * 100 + "vw";
-        g.style.top = clamp(y, 0, 1) * 100 + "vh";
+        g.style.left = clamp(x * innerWidth, 0, innerWidth - g.offsetWidth) + "px";
+        g.style.top = clamp(y * innerHeight, 0, innerHeight - g.offsetHeight) + "px";
         g.style.bottom = "auto";
         g.style.right = "auto";
       });
-    }
-    function setEdit(on) {
-      editing = on;
-      stage.classList.toggle("edit-characters", on);
-      toggle.setAttribute("aria-pressed", String(on));
-      toggle.textContent = on ? "✓ Finish Moving" : "✥ Move Characters";
-      hint.textContent = on
-        ? "Drag Bhanu or Zeyan anywhere on screen"
-        : "Positions saved automatically";
     }
     function startPositions() {
       if (positions) return;
@@ -298,19 +291,10 @@ export function initializePitch() {
       }));
       apply();
     }
-    toggle.addEventListener("click", () => {
-      if (!editing) {
-        startPositions();
-        setEdit(true);
-      } else {
-        setEdit(false);
-        localStorage.setItem(key, JSON.stringify(positions));
-      }
-    });
     reset.addEventListener("click", () => {
       positions = null;
       localStorage.removeItem(key);
-      setEdit(false);
+
       stage.classList.remove("custom-layout", "walk");
       stage.style.transform = "";
       guides.forEach((g) => {
@@ -319,11 +303,12 @@ export function initializePitch() {
         g.style.right = "";
         g.style.bottom = "";
       });
-      hint.textContent = "Automatic cinematic positions restored";
+      hint.textContent = "Drag a founder";
     });
     guides.forEach((guide, i) => {
       guide.addEventListener("pointerdown", (e) => {
-        if (!editing) return;
+        if (drag || !e.isPrimary || e.button !== 0) return;
+        startPositions();
         e.preventDefault();
         const r = guide.getBoundingClientRect();
         drag = {
@@ -355,6 +340,7 @@ export function initializePitch() {
           guide.classList.remove("dragging");
           try {
             localStorage.setItem(key, JSON.stringify(positions));
+            hint.textContent = "Position saved";
           } catch (_) {}
         }
       };

@@ -178,14 +178,6 @@ function App() {
         aria-label="Character layout controls"
       >
         <button
-          id="moveCharacters"
-          type="button"
-          aria-pressed="false"
-          title="Drag either founder to your preferred position"
-        >
-          ✥ Move Characters
-        </button>
-        <button
           id="resetCharacters"
           className="reset"
           type="button"
@@ -194,7 +186,7 @@ function App() {
           ↺ Reset
         </button>
         <span className="hint" id="charHint">
-          Drag to reposition · Saved automatically
+          Drag a founder
         </span>
       </div>
       <div id="autoplayHint">← → Chapters · Space to pause autoplay</div>

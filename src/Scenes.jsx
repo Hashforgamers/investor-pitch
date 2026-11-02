@@ -1,7 +1,8 @@
 import React from "react";
+import Chapter from "./Chapter";
 export function Origin() {
   return (
-    <section className="slide" id="home" data-chapter="1">
+    <Chapter className="slide" id="home" data-chapter="1">
       <div className="chapter-watermark">01</div>
       <div className="inner hero-layout">
         <div className="reveal">
@@ -221,12 +222,12 @@ export function Origin() {
       <a className="down" href="#problem">
         SCROLL TO EXPLORE
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function CafeDiscovery() {
   return (
-    <section
+    <Chapter
       className="slide story-scene"
       id="problem"
       data-chapter="2"
@@ -290,12 +291,12 @@ export function CafeDiscovery() {
       <a className="down" href="#pain-tourney">
         AND THEN...
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Tournaments() {
   return (
-    <section
+    <Chapter
       className="slide story-scene"
       id="pain-tourney"
       data-chapter="3"
@@ -349,12 +350,12 @@ export function Tournaments() {
       <a className="down" href="#pain-shop">
         NEXT PROBLEM
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Marketplace() {
   return (
-    <section
+    <Chapter
       className="slide story-scene"
       id="pain-shop"
       data-chapter="4"
@@ -409,12 +410,12 @@ export function Marketplace() {
       <a className="down" href="#pain-operator">
         ONE MORE GAP
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function CafeOwners() {
   return (
-    <section
+    <Chapter
       className="slide story-scene"
       id="pain-operator"
       data-chapter="5"
@@ -476,12 +477,12 @@ export function CafeOwners() {
       <a className="down" href="#big-reveal">
         NOW IMAGINE...
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function HashMoment() {
   return (
-    <section
+    <Chapter
       className="slide story-reveal"
       id="big-reveal"
       data-chapter="6"
@@ -523,12 +524,12 @@ export function HashMoment() {
           </a>
         </div>
       </div>
-    </section>
+    </Chapter>
   );
 }
 export function Ecosystem() {
   return (
-    <section className="slide" id="ecosystem" data-chapter="3">
+    <Chapter className="slide" id="ecosystem" data-chapter="3">
       <div className="chapter-watermark">03</div>
       <div className="inner">
         <div className="center reveal">
@@ -586,12 +587,12 @@ export function Ecosystem() {
       <a className="down" href="#revenue">
         FOLLOW THE MONEY
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Revenue() {
   return (
-    <section
+    <Chapter
       className="slide"
       id="revenue"
       data-chapter="4"
@@ -672,12 +673,12 @@ export function Revenue() {
       <a className="down" href="#scenario">
         EXPLORE NUMBERS
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Opportunity() {
   return (
-    <section className="slide" id="snapshot" data-chapter="5">
+    <Chapter className="slide" id="snapshot" data-chapter="5">
       <div className="chapter-watermark">05</div>
       <div className="inner center">
         <div className="eyebrow reveal">04 · Four streams, one model</div>
@@ -731,12 +732,12 @@ export function Opportunity() {
       <a className="down" href="#scenario">
         CHANGE ASSUMPTIONS
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function RevenueLab() {
   return (
-    <section
+    <Chapter
       className="slide"
       id="scenario"
       data-chapter="6"
@@ -941,12 +942,12 @@ export function RevenueLab() {
       <a className="down" href="#flywheel">
         THE FLYWHEEL
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Flywheel() {
   return (
-    <section className="slide" id="flywheel" data-chapter="7">
+    <Chapter className="slide" id="flywheel" data-chapter="7">
       <div className="chapter-watermark">07</div>
       <div className="inner">
         <div className="center reveal">
@@ -990,12 +991,12 @@ export function Flywheel() {
       <a className="down" href="#roadmap">
         THE NEXT LEVEL
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Roadmap() {
   return (
-    <section
+    <Chapter
       className="slide"
       id="roadmap"
       data-chapter="8"
@@ -1046,12 +1047,12 @@ export function Roadmap() {
       <a className="down" href="#vision">
         THE VISION
       </a>
-    </section>
+    </Chapter>
   );
 }
 export function Vision() {
   return (
-    <section className="slide final" id="vision" data-chapter="9">
+    <Chapter className="slide final" id="vision" data-chapter="9">
       <div className="chapter-watermark">09</div>
       <div className="inner reveal">
         <div className="eyebrow">08 · Built by gamers, for gamers</div>
@@ -1262,6 +1263,6 @@ export function Vision() {
           are illustrative scenarios. No investment return is promised.
         </p>
       </div>
-    </section>
+    </Chapter>
   );
 }

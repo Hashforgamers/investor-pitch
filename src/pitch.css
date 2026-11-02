@@ -1905,3 +1905,35 @@ body::after {
     display: inline-flex;
   }
 }
+
+/* Keep the hit area on the portrait so the surrounding stage passes through scrolls and clicks. */
+#founderGuides .guide { pointer-events:auto; touch-action:none; user-select:none; cursor:grab }
+#founderGuides .voice { pointer-events:none }
+#founderGuides.custom-layout { inset:0; max-width:none; transform:none !important; transition:none }
+#founderGuides.custom-layout .guide { position:absolute; animation:none }
+#founderGuides .dragging { cursor:grabbing; z-index:1 }
+.guide:hover .guide-tag,.guide.dragging .guide-tag { border-color:var(--lime); color:var(--lime) }
+#characterEditor {position:fixed;z-index:94;bottom:13px;left:12px;display:flex;align-items:center;gap:8px;background:#0e151def;border:1px solid #ffffff28;border-radius:30px;padding:4px 10px 4px 4px;color:#c4cdcf;font-size:11px}
+#resetCharacters {cursor:pointer;color:var(--lime);border:0;border-radius:22px;background:#26352c;padding:7px 10px}
+@media(max-width:900px){#founderGuides{transform:none !important} .guide-portrait{width:56px;height:72px}.guide .voice{bottom:95px}}
+@media(max-width:600px){.guide-portrait{width:44px;height:56px}.guide .voice{bottom:79px}#characterEditor .hint{display:none}}
+@media(prefers-reduced-motion:reduce){#founderGuides{display:flex}}
+.story-stage::before,.big-visual::before {
+ content:"";position:absolute;pointer-events:none;inset:40% -45% -45%;
+ background-image:linear-gradient(#92a5ff40 1px,transparent 1px),linear-gradient(90deg,#92a5ff40 1px,transparent 1px);
+ background-size:38px 38px;transform:perspective(360px) rotateX(62deg);
+ mask-image:linear-gradient(transparent,#000 65%);opacity:.65
+}
+@media(prefers-reduced-motion:no-preference){
+ .story-stage.show,.big-visual.show,.chart.show {transform:perspective(1000px) rotateX(calc(var(--depth,0) * -9deg)) rotateY(calc(var(--depth,0) * 6deg));transition:opacity .55s}
+ .story-stage::before,.big-visual::before {background-position:0 calc(var(--depth,0) * 80px)}
+}
+
+.slide { perspective: 1150px; perspective-origin: 50% 52%; }
+.chapter-plane { position:relative; width:100%; display:grid; justify-items:center; transform-style:preserve-3d; z-index:2; }
+.chapter-plane > .inner { transform-style:preserve-3d; }
+.chapter-plane .eyebrow { translate:0 0 18px; }
+.chapter-plane .chapter-watermark { translate:0 0 -80px; }
+.depth-floor { position:absolute; inset:35% -20% -20%; pointer-events:none; overflow:hidden; opacity:.55; }
+.depth-floor > div { position:absolute; inset:-15% -30% -40%; background-image:linear-gradient(to right,#a0b4ff35 1px,transparent 1px),linear-gradient(to bottom,#a0b4ff35 1px,transparent 1px); background-size:72px 52px; transform:perspective(420px) rotateX(62deg); mask-image:radial-gradient(ellipse at center,#000 15%,transparent 68%); }
+@media(max-width:650px){.slide{perspective:1500px}.depth-floor{opacity:.36}}
